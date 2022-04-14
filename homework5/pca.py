@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
 def mean_square_error(x, y):
      return (np.square(x - y)).mean()
         
@@ -10,12 +12,12 @@ def pca(X, k):
     # Compute covariance
     C = np.dot(X.T, X) / (n-1)
 
-    e, v = np.linalg.eig(C)
+    e, v = np.linalg.eigh(C)
     
-    # PTransformg
-    X_pca = np.dot(X, v[:, :k])
+    # Transform X
+    X_pca = np.dot(X, v[:, -k:])
     
-    return X_pca, v[:, :k]
+    return X_pca, v[:, -k:]
 
 
 import scipy.io as io
