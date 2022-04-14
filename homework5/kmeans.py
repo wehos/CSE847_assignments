@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.linalg
+import time
 
 # Calculate pair-wise row vector distance between two matrices
 def euclidean_distance(x, y):
@@ -38,24 +39,25 @@ def spectral_kmeans(a, k, tol=1e-4):
 #     e, v = scipy.linalg.eigh(x, subset_by_index=[x.shape[0]-k, x.shape[0]-1])
     
     e, v = scipy.linalg.eigh(x)
-    print(v.shape)
     label = kmeans(v[:, -k:], k)
     return label
     
 # Random Data with 2 dimensions and supposed to be 4 clusters
 data = np.random.rand(1000,2)-0.5
 data[:500, 0]+=1.5
-data[250:740, 1]+=1.5
+data[250:750, 1]+=1.5
 
+# Spectral Version
 spectral_label = spectral_kmeans(data, 4)
+
+# Original Version
 original_label = kmeans(data, 4)
 
 # Visualization
-
 plt.scatter(data[:, 0], data[:, 1], c=original_label, cmap='Spectral')
-plt.title('T-SNE projection of original k-means result')
+plt.title('Visualization of original k-means result')
 plt.show()
 
 plt.scatter(data[:, 0], data[:, 1], c=spectral_label, cmap='Spectral')
-plt.title('T-SNE projection of spectral k-means result')
+plt.title('Visualization of spectral k-means result')
 plt.show()
