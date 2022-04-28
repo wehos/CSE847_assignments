@@ -21,7 +21,7 @@ from sklearn.neighbors import KDTree
 import networkx as nx
 from torch.nn import functional as F
 
-import dance.transforms.preprocess
+import ..transforms.preprocess
 
 
 # from dance.transforms.preprocess import ccaEmbed, l2norm, selectTopGenes
