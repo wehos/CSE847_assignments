@@ -19,7 +19,7 @@ import torch.nn.functional as F
 import collections
 from pathlib import Path
 from time import time
-from dance.transforms.graph_construct import stAdjConstruct
+from ..transforms.graph_construct import stAdjConstruct
 import time
 import math
 import os
