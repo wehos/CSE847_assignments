@@ -3,11 +3,11 @@ import random
 import argparse
 from argparse import Namespace
 
-import dance.transforms.preprocess
-from dance.transforms.graph_construct import construct_modality_prediction_graph, gen_batch_features
-from dance.modules.multi_modality.predict_modality.scmogcn import *
-from dance.datasets.multimodality import ModalityPredictionDataset
-from dance.utils import set_seed
+import transforms.preprocess
+from transforms.graph_construct import construct_modality_prediction_graph, gen_batch_features
+from modules.multi_modality.predict_modality.scmogcn import *
+from datasets.multimodality import ModalityPredictionDataset
+from utils import set_seed
 
 def pipeline(transductive = True, verbose=2, logger=None, **kwargs):
     PREFIX = kwargs['prefix']
