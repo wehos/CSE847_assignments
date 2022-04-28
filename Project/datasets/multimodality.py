@@ -1,7 +1,7 @@
 from ..data import *
 import anndata as ad
 import pickle
-from dance.transforms.preprocess import lsiTransformer
+from ..transforms.preprocess import lsiTransformer
 
 class MultiModalityDataset():
     def __init__(self, task, data_url, subtask, data_dir = "./data"):
